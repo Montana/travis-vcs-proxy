@@ -22,6 +22,7 @@ class P4ServerType < ServerType
     p4.ticket_file = '/dev/null'
     p4.connect
     p4.run_trust('-y')
+    p4.login('-a -p')
     p = p4.run_protects
     if p
       values = p.detect { |repo| repo['depotFile'] == "//#{repository.name}/..." }
